@@ -23,23 +23,30 @@ function generatePassword() {
   var password = "";
 
   var passLength = prompt("How long would you like your password to be?");
+  if (passLength < 8 || passLength > 128 || passLength === NaN){
+    alert('Password length must be between 8 - 128 characters');
+    
+  }
   console.log(passLength);
-
-  var lCase = confirm("Do you want to include lowercase letters");
+//Lowercase
+  var lCase = confirm("Do you want to include lowercase letters?");
   if (lCase) {
     possibleChars = possibleChars + lower;
   }
   console.log(possibleChars);
+  //Uppercase
   var uCase = confirm("Do you want to include Uppercase letters");
   if (uCase) {
     possibleChars = possibleChars + upper;
   }
   console.log(possibleChars);
+  //Numbers
   var num = confirm("Do you want to include numbers");
   if (num) {
     possibleChars += numbers;
   }
   console.log(possibleChars);
+  //Special Character
   var specChar = confirm("Do you want to include special characters");
   if (specChar) {
     possibleChars = possibleChars + char;
